@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.widget.EditText;
 
 public class CadastroActivity extends AppCompatActivity {
-    private EditText etEmail
+    private EditText etEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
