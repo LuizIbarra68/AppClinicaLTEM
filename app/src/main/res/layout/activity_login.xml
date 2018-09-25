@@ -7,7 +7,7 @@
     tools:context=".LoginActivity">
 
     <EditText
-        android:id="@+id/etEmail"
+        android:id="@+id/ete-mail"
         android:layout_width="320dp"
         android:layout_height="39dp"
         android:layout_marginEnd="8dp"
@@ -32,7 +32,7 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/ete-mail" />
 
     <Button
         android:id="@+id/btnCadastrar"
