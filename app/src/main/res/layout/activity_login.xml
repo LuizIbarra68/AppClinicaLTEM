@@ -34,10 +34,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
-    <Button
-        android:id="@+id/btnCadastrar"
-        android:layout_width="161dp"
-        android:layout_height="67dp"
+    <TextView
+        android:id="@+id/tvCadastrar"
+        android:layout_width="99dp"
+        android:layout_height="31dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="76dp"
         android:text="CADASTRAR"
@@ -54,6 +54,6 @@
         android:text="ENTRAR"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.84"
-        app:layout_constraintStart_toEndOf="@+id/btnCadastrar"
+        app:layout_constraintStart_toEndOf="@+id/tvCadastrar"
         app:layout_constraintTop_toBottomOf="@+id/etSenha" />
 </android.support.constraint.ConstraintLayout>
