@@ -8,6 +8,6 @@ public class MenuUsuarioActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.menuusuario);
+        setContentView(R.layout.menu_usuario);
     }
 }
