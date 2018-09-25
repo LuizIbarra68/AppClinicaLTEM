@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "997538481339",
+    "firebase_url": "https://appclinica-208c3.firebaseio.com",
+    "project_id": "appclinica-208c3",
+    "storage_bucket": "appclinica-208c3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:997538481339:android:06dbfd0d8f46ae59",
+        "android_client_info": {
+          "package_name": "com.inf3m171.ltem.appclinicaltem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "997538481339-ceq0h8c4m8mlqrvu6mt9kpnfia3klfmd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALItoav0VselBIITbxMzPNJUEsuG3bnlQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
