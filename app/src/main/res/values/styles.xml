@@ -8,4 +8,29 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="estiloLabel" parent="AppTheme">
+
+        <item name="android:textColor">#666</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:layout_margin">8dp</item>
+
+    </style>
+
+    <style name="estiloCampos" parent="AppTheme">
+
+        <item name="android:textColor">#555</item>
+        <item name="android:textColorHint">#aaa</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:layout_margin">8dp</item>
+
+    </style>
+
+    <style name="estiloSelecionar" parent="AppTheme">
+
+        <item name="android:textColor">#000</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:layout_margin">8dp</item>
+
+    </style>
+
 </resources>

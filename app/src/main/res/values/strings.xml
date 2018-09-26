@@ -1,3 +1,22 @@
 <resources>
-    <string name="app_name">AppClinicaLTEM</string>
+    <string name="app_name">Vision Life</string>
+
+    <string name="txtEmail">E-mail: </string>
+    <string name="txtSenha">Senha: </string>
+    <string name="txtEntrar">ENTRAR </string>
+    <string name="txtCadastro">Cadastre-se!</string>
+
+    <string name="hintEmail">Digite aqui seu E-mail </string>
+    <string name="hintSenha">Digite aqui a sua senha </string>
+    <string name="hintValor">0.00 </string>
+
+    <string name="selecione">Selecione...</string>
+
+    <string name="txtLimpar">Limpar</string>
+    <string name="txtSair">Sair</string>
+
+    <string-array name="arrayMedicos">
+        <item>Selecione...</item>
+    </string-array>
+
 </resources>
