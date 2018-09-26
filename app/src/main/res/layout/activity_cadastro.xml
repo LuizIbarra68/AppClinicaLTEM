@@ -10,97 +10,80 @@
         android:id="@+id/etNome"
         android:layout_width="296dp"
         android:layout_height="40dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Digite seu nome"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="135dp" />
 
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="299dp"
         android:layout_height="36dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="Digite seu E-mail"
         android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNome" />
-
-    <EditText
-        android:id="@+id/etTelefone"
-        android:layout_width="299dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Digite seu telefone"
-        android:inputType="phone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
-
-    <EditText
-        android:id="@+id/etCPF"
-        android:layout_width="298dp"
-        android:layout_height="35dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Digite seu CPF"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etTelefone" />
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="43dp"
+        tools:layout_editor_absoluteY="225dp" />
 
     <EditText
         android:id="@+id/etSenha"
         android:layout_width="294dp"
         android:layout_height="36dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Digite sua senha"
         android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etCPF" />
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="45dp"
+        tools:layout_editor_absoluteY="315dp" />
 
     <EditText
         android:id="@+id/etConfirmaSenha"
         android:layout_width="294dp"
         android:layout_height="39dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="Confirme sua senha"
         android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSenha" />
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="45dp"
+        tools:layout_editor_absoluteY="370dp" />
 
     <Button
         android:id="@+id/btnSalvar"
+        android:layout_width="109dp"
+        android:layout_height="39dp"
+        android:text="SALVAR"
+        android:textColor="#e6616161"
+        tools:layout_editor_absoluteX="138dp"
+        tools:layout_editor_absoluteY="445dp" />
+
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="40dp"
-        android:text="SALVAR"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etConfirmaSenha" />
+        android:text="Senha:"
+        android:textColor="#FF2A2A2B"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="288dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="E-mail:"
+        android:textColor="#FF2A2A2B"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="199dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome:"
+        android:textColor="#FF2A2A2B"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="105dp" />
+
 </android.support.constraint.ConstraintLayout>
