@@ -5,6 +5,7 @@
     <string name="txtSenha">Senha: </string>
     <string name="txtEntrar">ENTRAR </string>
     <string name="txtCadastro">Cadastre-se!</string>
+    <string name="txtTeste">testando commit</string>
 
     <string name="hintEmail">Digite aqui seu E-mail </string>
     <string name="hintSenha">Digite aqui a sua senha </string>
