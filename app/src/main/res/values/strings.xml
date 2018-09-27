@@ -16,6 +16,14 @@
 
     <string-array name="arrayMedicos">
         <item>Selecione...</item>
+        <item>Dra. Marina</item> <item>Dra. Ana</item> <item>Dra. Joana</item>
+        <item>Dr. Carlos</item> <item>Dra. Luiz</item> <item>Dra. Christian</item>
+    </string-array>
+
+    <string-array name="arrayHorarios">
+        <item>Selecione...</item>
+        <item>08:00</item> <item>10:00</item> <item>12:00</item>
+        <item>14:00</item> <item>16:00</item> <item>18:00</item> <item>20:00</item>
     </string-array>
 
 </resources>

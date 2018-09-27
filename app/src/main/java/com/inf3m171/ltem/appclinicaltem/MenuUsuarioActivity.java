@@ -1,5 +1,6 @@
 package com.inf3m171.ltem.appclinicaltem;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -19,14 +20,26 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MenuUsuarioActivity extends AppCompatActivity {
 
+    private Button btnMarcarConsulta, btnListarConsultas;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_usuario);
 
+        btnMarcarConsulta = (Button) findViewById(R.id.btnMarcar);
+        btnListarConsultas = (Button) findViewById(R.id.btnListar);
 
+        btnMarcarConsulta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MenuUsuarioActivity.this, MarcacaoConsultaActivity.class);
+                startActivity(i);
+            }
+        });
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
