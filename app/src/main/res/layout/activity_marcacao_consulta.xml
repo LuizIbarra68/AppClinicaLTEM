@@ -8,29 +8,12 @@
     tools:context=".MarcacaoConsultaActivity">
 
     <EditText
-        android:id="@+id/etNome"
-        android:layout_width="349dp"
+        android:id="@+id/editText"
+        android:layout_width="291dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="Digite seu nome"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/etEmail"
-        android:layout_width="352dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNome" />
+        android:text="Name"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="63dp" />
 </android.support.constraint.ConstraintLayout>
