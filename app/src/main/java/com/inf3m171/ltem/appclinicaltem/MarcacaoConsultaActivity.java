@@ -27,14 +27,17 @@ public class MarcacaoConsultaActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 selecionarData();
+
             }
         });
+
+
 
     }
 
     private void selecionarData() {
 
-        AlertDialog.Builder alerta = new AlertDialog.Builder(this);
+        final AlertDialog.Builder alerta = new AlertDialog.Builder(this);
         final DatePicker calendario = new DatePicker(this);
         alerta.setView(calendario);
         alerta.setNegativeButton("OK", new DialogInterface.OnClickListener() {
@@ -42,8 +45,11 @@ public class MarcacaoConsultaActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i) {
                 String data = calendario.getDayOfMonth()+"/"+calendario.getMonth()+"/"+calendario.getYear();
                 etData.setText(data);
+
             }
         });
+
+        alerta.show();
 
     }
 
