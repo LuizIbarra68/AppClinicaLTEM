@@ -46,8 +46,11 @@ public class MarcacaoConsultaActivity extends AppCompatActivity {
                 String data = calendario.getDayOfMonth()+"/"+calendario.getMonth()+"/"+calendario.getYear();
                 etData.setText(data);
 
+
             }
         });
+
+        alerta.setPositiveButton("Cancelar", null);
 
         alerta.show();
 
