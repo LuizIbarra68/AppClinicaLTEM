@@ -5,14 +5,22 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MarcacaoConsultaActivity extends AppCompatActivity {
 
     private EditText etNomePaciente, etData;
-    private Button btnData;
+    private Button btnData, btnSalvarConsulta;
+    private Spinner spHorario, spMedico;
+    private FirebaseDatabase database;
+    private DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +30,9 @@ public class MarcacaoConsultaActivity extends AppCompatActivity {
         etNomePaciente = (EditText) findViewById(R.id.etNomePaciente);
         etData = (EditText) findViewById(R.id.etDataConsulta);
         btnData = (Button) findViewById(R.id.btnSelecioanrData);
+        btnSalvarConsulta = (Button) findViewById(R.id.btnSalvarConsulta);
+        spHorario = (Spinner) findViewById(R.id.spHorario);
+        spMedico = (Spinner) findViewById(R.id.spEspecialista);
 
         btnData.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,7 +42,12 @@ public class MarcacaoConsultaActivity extends AppCompatActivity {
             }
         });
 
+        btnSalvarConsulta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+            }
+        });
 
     }
 
@@ -53,6 +69,41 @@ public class MarcacaoConsultaActivity extends AppCompatActivity {
         alerta.setPositiveButton("Cancelar", null);
 
         alerta.show();
+
+    }
+
+    private void marcarConsulta(){
+        String nome = etNomePaciente.getText().toString();
+        String data = etData.getText().toString();
+        spHorario.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String horario = spHorario.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                return;
+            }
+        });
+
+        spMedico.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String medico = spMedico.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                return;
+            }
+        });
+
+        if (!nome.isEmpty()){
+
+        }
+
+
 
     }
 
