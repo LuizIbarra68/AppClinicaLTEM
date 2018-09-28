@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".CadastroActivity" />
         <activity android:name=".MenuUsuarioActivity" />
-        <activity android:name=".MarcacaoConsultaActivity"></activity>
+        <activity android:name=".MarcacaoConsultaActivity" />
+        <activity android:name=".ListaConsultaActivity"></activity>
     </application>
 
 </manifest>
