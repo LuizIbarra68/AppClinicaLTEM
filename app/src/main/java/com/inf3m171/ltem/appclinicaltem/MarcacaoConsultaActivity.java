@@ -10,9 +10,11 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.inf3m171.ltem.appclinicaltem.model.Consulta;
 
 public class MarcacaoConsultaActivity extends AppCompatActivity {
 
@@ -34,6 +36,9 @@ public class MarcacaoConsultaActivity extends AppCompatActivity {
         spHorario = (Spinner) findViewById(R.id.spHorario);
         spMedico = (Spinner) findViewById(R.id.spEspecialista);
 
+        database = FirebaseDatabase.getInstance();
+        reference = database.getReference();
+
         btnData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,7 +50,7 @@ public class MarcacaoConsultaActivity extends AppCompatActivity {
         btnSalvarConsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+             marcarConsulta();
             }
         });
 
@@ -99,13 +104,19 @@ public class MarcacaoConsultaActivity extends AppCompatActivity {
             }
         });
 
-        if (!nome.isEmpty()){
+        if (!nome.isEmpty() && !data.isEmpty()){
+            Consulta consulta = new Consulta();
+            consulta.setNome(nome);
 
+            reference.child("Consultas").push().setValue(consulta);
+            Toast.makeText(this, "Consulta marcada com sucesso!", Toast.LENGTH_LONG);
+
+            etNomePaciente.setText("");
+            etData.setText("");
+            spHorario.setSelection(0);
+            spMedico.setSelection(0);
         }
 
-
-
     }
-
 
 }
