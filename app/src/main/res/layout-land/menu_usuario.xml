@@ -6,29 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".MenuUsuarioActivity">
 
-    <Button
-        android:id="@+id/btnMarcar"
-        android:layout_width="230dp"
-        android:layout_height="61dp"
-        android:text="MARCAR CONSULTA"
-        android:textColor="@color/common_google_signin_btn_text_dark_default"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
 
-    <Button
-        android:id="@+id/btnListar"
-        android:layout_width="225dp"
-        android:layout_height="61dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="92dp"
-        android:text="MINHAS CONSULTAS"
-        android:textColor="@color/common_google_signin_btn_text_dark_default"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.405"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnMarcar"
-        app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/btnMarcar"
+            android:layout_width="230dp"
+            android:layout_height="61dp"
+            android:text="MARCAR CONSULTA"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"/>
+
+
+        <Button
+            android:id="@+id/btnListar"
+            android:layout_width="225dp"
+            android:layout_height="61dp"
+            android:text="MINHAS CONSULTAS"
+            android:textColor="@color/common_google_signin_btn_text_dark_default" />
+
+    </LinearLayout>
 
 </ScrollView>
