@@ -37,6 +37,7 @@ public class ListaConsultaActivity extends AppCompatActivity {
     private DatabaseReference reference;
     private Query queryRef;
     private ChildEventListener childEventListener;
+    private Consulta consultaselecionada;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +74,8 @@ public class ListaConsultaActivity extends AppCompatActivity {
         alerta.setPositiveButton("Remarcar Consulta", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                 //listaDeConsultas
+                 Intent intent = new Intent(ListaConsultaActivity.this, MarcacaoConsultaActivity.class);
+                 startActivity(intent);
 
             }
         });
@@ -81,22 +83,24 @@ public class ListaConsultaActivity extends AppCompatActivity {
         alerta.setNegativeButton("Cancelar Conculta", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                AlertDialog.Builder alerta = new AlertDialog.Builder(ListaConsultaActivity.this);
-                alerta.setTitle("Atencao");
-                alerta.setIcon(android.R.drawable.ic_dialog_alert);
-                alerta.setMessage("Confirma a exclusão da consulta" +
+                AlertDialog.Builder alerta2 = new AlertDialog.Builder(ListaConsultaActivity.this);
+                alerta2.setTitle("Atencao");
+                alerta2.setIcon(android.R.drawable.ic_dialog_alert);
+                alerta2.setMessage("Confirma a exclusão da consulta" +
                 listaDeConsultas.get(posicao).getNome() + "?");
-                alerta.setNeutralButton("SIM", new DialogInterface.OnClickListener() {
+                alerta2.setNeutralButton("SIM", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                       // ListaConsultaActivity
-
+                        deletar(posicao);
                     }
                 });
+                alerta2.show();
 
 
             }
         });
+
+        alerta.show();
 
 
 
@@ -113,15 +117,20 @@ public class ListaConsultaActivity extends AppCompatActivity {
         childEventListener = new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Consulta consulta = new Consulta();
-                consulta.setId(dataSnapshot.getKey());
-                consulta.setNome(dataSnapshot.child("nome").getValue(String.class));
-                consulta.setData(dataSnapshot.child("data").getValue(String.class));
-                consulta.setHorario(dataSnapshot.child("horario").getValue(String.class));
-                consulta.setMedico(dataSnapshot.child("medico").getValue(String.class));
-                listaDeConsultas.add(consulta);
-                adapter.notifyDataSetChanged();
+                String idUsuario = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
+                if( idUsuario.equals(  dataSnapshot.child("idUsuario").getValue(String.class) )) {
+
+                    Consulta consulta = new Consulta();
+                    consulta.setId(dataSnapshot.getKey());
+                    consulta.setNome(dataSnapshot.child("nome").getValue(String.class));
+                    consulta.setData(dataSnapshot.child("data").getValue(String.class));
+                    consulta.setHorario(dataSnapshot.child("horario").getValue(String.class));
+                    consulta.setMedico(dataSnapshot.child("medico").getValue(String.class));
+                    listaDeConsultas.add(consulta);
+                    adapter.notifyDataSetChanged();
+
+                }
             }
 
             @Override
@@ -170,6 +179,13 @@ public class ListaConsultaActivity extends AppCompatActivity {
             finish();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void deletar(int posicao){
+        Consulta consulta = ( Consulta) lvConsulta.getItemAtPosition(posicao);
+        reference.child("Consultas").child(consulta.getId()).removeValue();
+        listaDeConsultas.remove(posicao);
+        adapter.notifyDataSetChanged();
     }
 
 }
