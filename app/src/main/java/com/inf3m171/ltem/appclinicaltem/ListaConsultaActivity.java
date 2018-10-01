@@ -69,15 +69,31 @@ public class ListaConsultaActivity extends AppCompatActivity {
         AlertDialog.Builder alerta = new AlertDialog.Builder(ListaConsultaActivity.this);
         alerta.setTitle("Atenção");
         alerta.setIcon(android.R.drawable.ic_dialog_alert);
-        alerta.setMessage("Confirma a remarcacao da consulta" + listaDeConsultas.get(posicao).getNome() + "?");
-        alerta.setNeutralButton("Remarcar", null);
-        alerta.setPositiveButton("SIM", new DialogInterface.OnClickListener() {
+        alerta.setMessage("Escolha sua opção: " + listaDeConsultas.get(posicao).getNome() + "?");
+        alerta.setNeutralButton("Sair", null);
+        alerta.setPositiveButton("Remarcar Consulta", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-    //              listaDeConsultas.remove(posicao);
-     //             adapter.notifyDataSetChanged();
+                 listaDeConsultas
 
+            }
+        });
 
+        alerta.setNegativeButton("Cancelar Conculta", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                AlertDialog.Builder alerta = new AlertDialog.Builder(ListaConsultaActivity.this);
+                alerta.setTitle("Atencao");
+                alerta.setIcon(android.R.drawable.ic_dialog_alert);
+                alerta.setMessage("Confirma a exclusão da consulta" +
+                listaDeConsultas.get(posicao).getNome() + "?");
+                alerta.setNeutralButton("SIM", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        ListaConsultaActivity.
+
+                    }
+                })
 
 
             }
