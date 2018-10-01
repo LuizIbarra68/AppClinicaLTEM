@@ -5,22 +5,32 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.inf3m171.ltem.appclinicaltem.model.Consulta;
 
 public class MenuUsuarioActivity extends AppCompatActivity {
 
     private Button btnMarcarConsulta, btnListarConsultas;
+    private TextView txtbemvindo;
+
+
+    private Consulta consulta = new Consulta();
 
 
     @Override
@@ -31,6 +41,9 @@ public class MenuUsuarioActivity extends AppCompatActivity {
         btnMarcarConsulta = (Button) findViewById(R.id.btnMarcar);
         btnListarConsultas = (Button) findViewById(R.id.btnListar);
 
+        txtbemvindo = (TextView)findViewById(R.id.txtola);
+
+
         btnMarcarConsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -38,7 +51,21 @@ public class MenuUsuarioActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        btnListarConsultas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MenuUsuarioActivity.this, ListaConsultaActivity.class);
+                startActivity(i);
+            }
+        });
+
+
     }
+
+    private void mostrarNome(){
+    }
+
 
 
     @Override

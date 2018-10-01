@@ -55,8 +55,6 @@ public class ListaConsultaActivity extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                darOpcoes(i);
-
                 return true;
             }
         });
@@ -107,7 +105,7 @@ public class ListaConsultaActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        queryRef = reference.child("Consulta").orderByChild("nome");
+        queryRef = reference.child("Consultas").orderByChild("nome");
 
         listaDeConsultas.clear();
 
