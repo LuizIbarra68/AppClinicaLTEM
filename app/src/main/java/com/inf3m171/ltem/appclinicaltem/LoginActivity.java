@@ -1,29 +1,50 @@
 package com.inf3m171.ltem.appclinicaltem;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.provider.Contacts;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.inf3m171.ltem.appclinicaltem.model.Consulta;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText etEmail, etSenha;
+    private EditText etEmail, etSenha, etNome;
     private Button btnEntrar;
-    TextView tvCadastrar;
+    private Button btnSignOut, btnRevokeAccess;
+    private TextView tvCadastrar;
 
     private FirebaseAuth autenticacao;
     private FirebaseAuth.AuthStateListener stateListener;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference reference;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +57,10 @@ public class LoginActivity extends AppCompatActivity {
         btnEntrar = (Button) findViewById(R.id.btnEntrar);
         tvCadastrar = (TextView) findViewById(R.id.tvCadastrar);
 
-
         autenticacao = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+
+
 
         tvCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,8 +75,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null){
-                    Intent i = new Intent(LoginActivity.this,
-                            MenuUsuarioActivity.class);
+                    Intent i = new Intent(LoginActivity.this, MenuUsuarioActivity.class);
                     startActivity(i);
                 }
             }
@@ -61,19 +83,18 @@ public class LoginActivity extends AppCompatActivity {
 
         btnEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 entrar();
             }
-
         });
+
 
     }
 
-
     @Override
     protected void onStart() {
-        super.onStart();
         autenticacao.addAuthStateListener(stateListener);
+        super.onStart();
     }
 
     @Override
