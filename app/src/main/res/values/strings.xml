@@ -18,7 +18,7 @@
     <string-array name="arrayMedicos">
         <item>Selecione...</item>
         <item>Dra. Marina</item> <item>Dra. Ana</item> <item>Dra. Joana</item>
-        <item>Dr. Carlos</item> <item>Dra. Luiz</item> <item>Dra. Christian</item>
+        <item>Dr. Carlos</item> <item>Dr. Luiz</item> <item>Dr. Christian</item>
     </string-array>
 
     <string-array name="arrayHorarios">

@@ -107,9 +107,13 @@ public class MarcacaoConsultaActivity extends AppCompatActivity {
         if (!nome.isEmpty() && !data.isEmpty()){
             Consulta consulta = new Consulta();
             consulta.setNome(nome);
+            consulta.setData(data);
+            consulta.setHorario(spHorario.getSelectedItem().toString());
+            consulta.setMedico(spMedico.getSelectedItem().toString());
+
 
             reference.child("Consultas").push().setValue(consulta);
-            Toast.makeText(this, "Consulta marcada com sucesso!", Toast.LENGTH_LONG);
+            Toast.makeText(MarcacaoConsultaActivity.this, "Consulta marcada com sucesso!", Toast.LENGTH_LONG).show();
 
             etNomePaciente.setText("");
             etData.setText("");
