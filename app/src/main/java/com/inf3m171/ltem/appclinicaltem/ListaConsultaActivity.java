@@ -55,6 +55,7 @@ public class ListaConsultaActivity extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+                darOpcoes(i);
                 return true;
             }
         });
@@ -72,7 +73,7 @@ public class ListaConsultaActivity extends AppCompatActivity {
         alerta.setPositiveButton("Remarcar Consulta", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                 listaDeConsultas
+                 //listaDeConsultas
 
             }
         });
@@ -88,10 +89,10 @@ public class ListaConsultaActivity extends AppCompatActivity {
                 alerta.setNeutralButton("SIM", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        ListaConsultaActivity.
+                       // ListaConsultaActivity
 
                     }
-                })
+                });
 
 
             }
