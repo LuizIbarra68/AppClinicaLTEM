@@ -7,20 +7,23 @@
     android:background="#FFE8E8E8"
     tools:context=".ListaConsultaActivity">
 
-    <ListView
-        android:id="@+id/lvConsulta"
-        android:layout_width="378dp"
-        android:layout_height="453dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="#5CAECDD5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.843" />
+
+    <include layout="@layout/content_lista"/>
+
+    <!--<ListView-->
+        <!--android:id="@+id/lvConsulta"-->
+        <!--android:layout_width="378dp"-->
+        <!--android:layout_height="453dp"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:layout_marginStart="8dp"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:background="#5CAECDD5"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.47"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--app:layout_constraintVertical_bias="0.843" />-->
 
     <TextView
         android:id="@+id/textView13"
