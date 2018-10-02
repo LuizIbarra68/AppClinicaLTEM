@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.inf3m171.ltem.appclinicaltem.model.Consulta;
@@ -106,8 +107,10 @@ public class MarcacaoConsultaActivity extends AppCompatActivity {
 
         if (!nome.isEmpty() && !data.isEmpty()){
             Consulta consulta = new Consulta();
+            String idUsuario = FirebaseAuth.getInstance().getCurrentUser().getUid();
             consulta.setNome(nome);
             consulta.setData(data);
+            consulta.setIdUsuario(idUsuario);
             consulta.setHorario(spHorario.getSelectedItem().toString());
             consulta.setMedico(spMedico.getSelectedItem().toString());
 
