@@ -48,6 +48,7 @@ public class MenuUsuarioActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MenuUsuarioActivity.this, MarcacaoConsultaActivity.class);
+                i.putExtra("acao","nova");
                 startActivity(i);
             }
         });

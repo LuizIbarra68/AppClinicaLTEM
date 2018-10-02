@@ -13,8 +13,12 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.inf3m171.ltem.appclinicaltem.model.Consulta;
 
 public class MarcacaoConsultaActivity extends AppCompatActivity {
@@ -24,6 +28,12 @@ public class MarcacaoConsultaActivity extends AppCompatActivity {
     private Spinner spHorario, spMedico;
     private FirebaseDatabase database;
     private DatabaseReference reference;
+
+
+    private Query queryRef;
+    private ChildEventListener childEventListener;
+
+    private String acao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +46,8 @@ public class MarcacaoConsultaActivity extends AppCompatActivity {
         btnSalvarConsulta = (Button) findViewById(R.id.btnSalvarConsulta);
         spHorario = (Spinner) findViewById(R.id.spHorario);
         spMedico = (Spinner) findViewById(R.id.spEspecialista);
+
+        acao = getIntent().getExtras().getString("acao");
 
         database = FirebaseDatabase.getInstance();
         reference = database.getReference();
@@ -55,7 +67,41 @@ public class MarcacaoConsultaActivity extends AppCompatActivity {
             }
         });
 
+        if (acao.equals("editar")){
+            preencherFormulario();
+
+
+
+        }
+
     }
+
+    private void preencherFormulario() {
+
+
+        etNomePaciente.setText( getIntent().getExtras().getString("nome"));
+        etData.setText(getIntent().getExtras().getString("data"));
+
+        String[] medicos = getResources().getStringArray(R.array.arrayMedicos);
+        for ( int i = 1; i < medicos.length;i++){
+            if (medicos[i].equals(getIntent().getExtras().getString("medico") )){
+                spMedico.setSelection(i);
+                break;
+            }
+        }
+
+        String[] horario = getResources().getStringArray(R.array.arrayHorarios);
+        for ( int i = 1; i < horario.length;i++){
+            if (horario[i].equals(getIntent().getExtras().getString("horario") )){
+                spHorario.setSelection(i);
+                break;
+            }
+        }
+
+
+
+    }
+
 
     private void selecionarData() {
 
@@ -106,6 +152,9 @@ public class MarcacaoConsultaActivity extends AppCompatActivity {
         });
 
         if (!nome.isEmpty() && !data.isEmpty()){
+
+
+
             Consulta consulta = new Consulta();
             String idUsuario = FirebaseAuth.getInstance().getCurrentUser().getUid();
             consulta.setNome(nome);
@@ -115,7 +164,11 @@ public class MarcacaoConsultaActivity extends AppCompatActivity {
             consulta.setMedico(spMedico.getSelectedItem().toString());
 
 
-            reference.child("Consultas").push().setValue(consulta);
+            if (acao.equals("editar")){
+                reference.child("Consultas").child( getIntent().getExtras().getString("id")  ).push().setValue(consulta);
+            }else {
+                reference.child("Consultas").push().setValue(consulta);
+            }
             Toast.makeText(MarcacaoConsultaActivity.this, "Consulta marcada com sucesso!", Toast.LENGTH_LONG).show();
 
             etNomePaciente.setText("");

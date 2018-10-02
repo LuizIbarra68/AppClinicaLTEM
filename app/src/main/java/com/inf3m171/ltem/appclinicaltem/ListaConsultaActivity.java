@@ -74,7 +74,15 @@ public class ListaConsultaActivity extends AppCompatActivity {
         alerta.setPositiveButton("Remarcar Consulta", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                Consulta consulta =(Consulta) lvConsulta.getItemAtPosition(posicao);
                  Intent intent = new Intent(ListaConsultaActivity.this, MarcacaoConsultaActivity.class);
+                 intent.putExtra("acao","editar");
+                 intent.putExtra("id",consulta.getId());
+                 intent.putExtra("nome",consulta.getNome());
+                 intent.putExtra("data",consulta.getData());
+                 intent.putExtra("horario",consulta.getHorario());
+                 intent.putExtra("medico",consulta.getMedico());
+
                  startActivity(intent);
 
             }
