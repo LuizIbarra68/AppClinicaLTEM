@@ -1,7 +1,7 @@
 package com.inf3m171.ltem.appclinicaltem.model;
 
 public class Consulta {
-    private String id, nome, data, horario, medico;
+    private String id, nome, data, horario, medico, idUsuario;
 
     @Override
     public String toString(){return nome;}
@@ -27,4 +27,11 @@ public class Consulta {
 
     public void setMedico (String medico) {this.medico = medico;}
 
+    public String getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 }

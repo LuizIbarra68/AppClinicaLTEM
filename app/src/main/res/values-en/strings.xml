@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Vision Life</string>
+
+    <string name="txtEmail">E-mail: </string>
+    <string name="txtSenha">Password: </string>
+    <string name="txtEntrar">LOG IN</string>
+    <string name="txtCadastro">Register!</string>
+
+    <string name="hintEmail">Enter your Email here </string>
+    <string name="hintSenha">Enter you Password here </string>
+
+    <string name="selecione">Select...</string>
+
+    <string name="txtLimpar">Clear</string>
+    <string name="txtSair">Exit</string>
+
+    <string-array name="arrayMedicos">
+        <item>Select...</item>
+        <item>Dra. Marina</item> <item>Dra. Ana</item> <item>Dra. Joana</item>
+        <item>Dr. Carlos</item> <item>Dr. Luiz</item> <item>Dr. Christian</item>
+    </string-array>
+
+    <string-array name="arrayHorarios">
+        <item>Select...</item>
+        <item>08:00</item> <item>10:00</item> <item>12:00</item>
+        <item>14:00</item> <item>16:00</item> <item>18:00</item> <item>20:00</item>
+    </string-array>
+
+</resources>
