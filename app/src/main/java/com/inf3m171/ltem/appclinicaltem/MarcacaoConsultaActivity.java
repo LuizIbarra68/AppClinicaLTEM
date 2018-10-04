@@ -80,7 +80,19 @@ public class MarcacaoConsultaActivity extends AppCompatActivity {
 
 
         etNomePaciente.setText( getIntent().getExtras().getString("nome"));
-        etData.setText(getIntent().getExtras().getString("data"));
+        String data = getIntent().getExtras().getString("data");
+
+        String smes = data.substring(3,5);
+        int mes = Integer.valueOf( smes) + 1;
+        if (mes < 10)
+            smes = "0" + mes;
+        else
+            smes = String.valueOf(mes);
+
+        data = data.substring(0,3) + smes + data.substring(5,10);
+
+
+        etData.setText(data);
 
         String[] medicos = getResources().getStringArray(R.array.arrayMedicos);
         for ( int i = 1; i < medicos.length;i++){
@@ -97,11 +109,7 @@ public class MarcacaoConsultaActivity extends AppCompatActivity {
                 break;
             }
         }
-
-
-
     }
-
 
     private void selecionarData() {
 
@@ -111,9 +119,8 @@ public class MarcacaoConsultaActivity extends AppCompatActivity {
         alerta.setNegativeButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                String data = calendario.getDayOfMonth()+"/"+calendario.getMonth()+"/"+calendario.getYear();
+                String data = calendario.getDayOfMonth()+"/"+(calendario.getMonth()+1)+"/"+calendario.getYear();
                 etData.setText(data);
-
 
             }
         });
@@ -153,8 +160,6 @@ public class MarcacaoConsultaActivity extends AppCompatActivity {
 
         if (!nome.isEmpty() && !data.isEmpty()){
 
-
-
             Consulta consulta = new Consulta();
             String idUsuario = FirebaseAuth.getInstance().getCurrentUser().getUid();
             consulta.setNome(nome);
@@ -165,7 +170,7 @@ public class MarcacaoConsultaActivity extends AppCompatActivity {
 
 
             if (acao.equals("editar")){
-                reference.child("Consultas").child( getIntent().getExtras().getString("id")  ).push().setValue(consulta);
+                reference.child("Consultas").child( getIntent().getExtras().getString("id")  ).setValue(consulta);
             }else {
                 reference.child("Consultas").push().setValue(consulta);
             }
