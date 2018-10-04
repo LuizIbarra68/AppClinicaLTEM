@@ -18,6 +18,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import com.inf3m171.ltem.appclinicaltem.model.Consulta;
+
+
 public class LoginActivity extends AppCompatActivity {
 
     private EditText etEmail, etSenha, etNome;

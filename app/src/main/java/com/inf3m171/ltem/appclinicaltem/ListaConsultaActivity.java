@@ -32,7 +32,7 @@ public class ListaConsultaActivity extends AppCompatActivity {
     private ListView lvConsulta;
     private List<Consulta> listaDeConsultas;
 
-    private ArrayAdapter adapter;
+    private AdapterConsultas adapter;
     private FirebaseDatabase database;
     private DatabaseReference reference;
     private Query queryRef;
@@ -46,7 +46,7 @@ public class ListaConsultaActivity extends AppCompatActivity {
 
         lvConsulta =  (ListView) findViewById(R.id.lvConsulta);
         listaDeConsultas = new ArrayList<>();
-        adapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, listaDeConsultas);
+        adapter = new AdapterConsultas(this, listaDeConsultas);
         lvConsulta.setAdapter(adapter);
 
         database = FirebaseDatabase.getInstance();
@@ -74,7 +74,15 @@ public class ListaConsultaActivity extends AppCompatActivity {
         alerta.setPositiveButton("Remarcar Consulta", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                Consulta consulta =(Consulta) lvConsulta.getItemAtPosition(posicao);
                  Intent intent = new Intent(ListaConsultaActivity.this, MarcacaoConsultaActivity.class);
+                 intent.putExtra("acao","editar");
+                 intent.putExtra("id",consulta.getId());
+                 intent.putExtra("nome",consulta.getNome());
+                 intent.putExtra("data",consulta.getData());
+                 intent.putExtra("horario",consulta.getHorario());
+                 intent.putExtra("medico",consulta.getMedico());
+
                  startActivity(intent);
 
             }
@@ -110,7 +118,7 @@ public class ListaConsultaActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        queryRef = reference.child("Consultas").orderByChild("nome");
+        queryRef = reference.child("Consultas").orderByChild("medico");
 
         listaDeConsultas.clear();
 
@@ -187,6 +195,13 @@ public class ListaConsultaActivity extends AppCompatActivity {
         listaDeConsultas.remove(posicao);
         adapter.notifyDataSetChanged();
     }
+
+//    private void carregarConsultas(){
+//        listaDeConsultas = FirebaseDatabase.getInstance(th);
+//        //adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listaDeProdutos);
+////        AdapterAnimais adapter = new AdapterAnimais(this,listaDeAnimais);
+////        lvLista.setAdapter( adapter );
+//    }
 
 }
 
