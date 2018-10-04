@@ -62,7 +62,7 @@ public class AdapterConsultas extends BaseAdapter{
 
         }
         Consulta con = listaDeConsultas.get(position);
-        item.tvNome.setText( con.getNome());
+        item.tvNome.setText( con.getMedico());
         item.tvData.setText( String.valueOf(con.getData()));
         item.tvHorario.setText( String.valueOf(con.getHorario()));
 

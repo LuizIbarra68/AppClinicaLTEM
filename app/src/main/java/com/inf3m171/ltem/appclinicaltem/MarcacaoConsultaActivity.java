@@ -119,7 +119,21 @@ public class MarcacaoConsultaActivity extends AppCompatActivity {
         alerta.setNegativeButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                String data = calendario.getDayOfMonth()+"/"+(calendario.getMonth()+1)+"/"+calendario.getYear();
+                String sMes;
+                int mes = calendario.getMonth()+1;
+                if (mes < 10)
+                    sMes = "0" + mes;
+                else
+                    sMes = ""+mes;
+
+                String sDia;
+                int dia = calendario.getDayOfMonth();
+                if (dia < 10)
+                    sDia = "0" + dia;
+                else
+                    sDia = ""+dia;
+
+                String data = sDia+"/"+sMes+"/"+calendario.getYear();
                 etData.setText(data);
 
             }
