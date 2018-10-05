@@ -39,7 +39,7 @@ public class AdapterConsultas extends BaseAdapter{
 
     @Override
     public long getItemId(int position) {
-        return listaDeConsultas.get(position);
+        return 0;
     }
 
     @Override

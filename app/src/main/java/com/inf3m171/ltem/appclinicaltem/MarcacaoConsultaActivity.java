@@ -83,7 +83,7 @@ public class MarcacaoConsultaActivity extends AppCompatActivity {
         String data = getIntent().getExtras().getString("data");
 
         String smes = data.substring(3,5);
-        int mes = Integer.valueOf( smes) + 1;
+        int mes = Integer.valueOf(smes) + 1;
         if (mes < 10)
             smes = "0" + mes;
         else
